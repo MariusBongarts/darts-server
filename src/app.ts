@@ -16,6 +16,7 @@ app.get("/", (req, res) => {
 
 app.post("/", (req, res) => {
   const darts = req.body as unknown as SetOfDarts;
+  console.log(darts);
   dartCalculator.addDarts(darts);
   res.sendStatus(200);
 });
