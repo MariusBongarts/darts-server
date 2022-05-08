@@ -1,25 +1,27 @@
-interface DartCalculation {
+import { dartBoardTemplate } from './templates/dart-board';
+
+export interface DartCalculation {
   x: number;
   y: number;
 }
-export class DartCalculator {
-  private calculations: DartCalculation[] = [];
 
-  public addCalculation(calc: DartCalculation) {
-    return this.calculations.unshift(calc);
+export type SetOfDarts = DartCalculation[];
+
+export class DartCalculator {
+  private darts: SetOfDarts[] = [];
+
+  public addDarts(darts: SetOfDarts) {
+    return this.darts.unshift(darts);
   }
 
-  private renderCalculation({ x, y }: DartCalculation) {
-    return `x: <b>${x}</b>, y: <b>${y}</b>`;
+  private renderDarts(darts: SetOfDarts): string {
+    return dartBoardTemplate(darts);
   }
 
   public render() {
     return `
-      <h1>Darts Calculatory</h1>
-
-      <h3>Letzte Würfe:</h3>
-      ${this.calculations
-        .map((calc) => `<span>${this.renderCalculation(calc)}</span><br>`)
+      ${this.darts
+        .map((darts) => `<span>${this.renderDarts(darts)}</span><br><br>`)
         .join("")}
       <br>
       <br>

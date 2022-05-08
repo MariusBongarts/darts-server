@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "tsc && node ./dist/app",
+    "start": "yarn build && node ./dist/app",
+    "build": "tsc",
     "dev": "nodemon -e ts  --exec \"npm run start\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,24 +1,21 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DartCalculator = void 0;
+const dart_board_1 = require("./templates/dart-board");
 class DartCalculator {
     constructor() {
-        this.calculations = [{ x: 1, y: 2 }];
+        this.darts = [];
     }
-    addCalculation(calc) {
-        return this.calculations.unshift(calc);
+    addDarts(darts) {
+        return this.darts.unshift(darts);
     }
-    renderCalculation({ x, y }) {
-        return `x: <b>${x}</b>, y: <b>${y}</b>`;
+    renderDarts(darts) {
+        return (0, dart_board_1.dartBoardTemplate)(darts);
     }
     render() {
         return `
-      <h1>Darts Calculatory</h1>
-
-      <h3>Letzte Würfe:</h3>
-      <br>
-      ${this.calculations
-            .map((calc) => `<span>${this.renderCalculation(calc)}</span><br>`)
+      ${this.darts
+            .map((darts) => `<span>${this.renderDarts(darts)}</span><br><br>`)
             .join("")}
       <br>
       <br>
