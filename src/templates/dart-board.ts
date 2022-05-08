@@ -2,7 +2,7 @@ import { SetOfDarts } from '../dart-calculator';
 
 const BOARD_WIDTH = 787;
 const BOARD_HEIGHT = 774;
-const MAX_X_Y = 2.4;
+const MAX_X_Y = 2.6;
 export const dartBoardTemplate = (darts: SetOfDarts) => `
 <!DOCTYPE html>
 <html lang="en">
