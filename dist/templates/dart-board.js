@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.dartBoardTemplate = void 0;
 const BOARD_WIDTH = 787;
 const BOARD_HEIGHT = 774;
-const MAX_X_Y = 2.4;
+const MAX_X_Y = 2.6;
 const dartBoardTemplate = (darts) => `
 <!DOCTYPE html>
 <html lang="en">

@@ -15,6 +15,7 @@ app.get("/", (req, res) => {
 });
 app.post("/", (req, res) => {
     const darts = req.body;
+    console.log(darts);
     dartCalculator.addDarts(darts);
     res.sendStatus(200);
 });
