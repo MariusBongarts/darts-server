@@ -1,14 +1,15 @@
+import { mockDarts } from './mock-data';
 import { dartBoardTemplate } from './templates/dart-board';
 
 export interface DartCalculation {
-  x: number;
-  y: number;
+  y: number | null;
+  x: number | null;
 }
 
 export type SetOfDarts = DartCalculation[];
 
 export class DartCalculator {
-  private darts: SetOfDarts[] = [];
+  private darts: SetOfDarts[] = []
 
   public addDarts(darts: SetOfDarts) {
     return this.darts.unshift(darts);
@@ -18,9 +19,9 @@ export class DartCalculator {
     return dartBoardTemplate(darts);
   }
 
-  public render() {
+  public render(darts?: SetOfDarts[]) {
     return `
-      ${this.darts
+      ${(darts || this.darts)
         .map((darts) => `<span>${this.renderDarts(darts)}</span><br><br>`)
         .join("")}
       <br>

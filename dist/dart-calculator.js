@@ -1,10 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DartCalculator = void 0;
+const mock_data_1 = require("./mock-data");
 const dart_board_1 = require("./templates/dart-board");
 class DartCalculator {
     constructor() {
-        this.darts = [];
+        this.darts = [mock_data_1.mockDarts];
     }
     addDarts(darts) {
         return this.darts.unshift(darts);
@@ -12,9 +13,9 @@ class DartCalculator {
     renderDarts(darts) {
         return (0, dart_board_1.dartBoardTemplate)(darts);
     }
-    render() {
+    render(darts) {
         return `
-      ${this.darts
+      ${(darts || this.darts)
             .map((darts) => `<span>${this.renderDarts(darts)}</span><br><br>`)
             .join("")}
       <br>

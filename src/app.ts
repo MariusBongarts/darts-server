@@ -1,5 +1,6 @@
 import express from "express";
 import { DartCalculator, SetOfDarts } from "./dart-calculator";
+import { mockDarts } from './mock-data';
 
 const app = express();
 
@@ -11,6 +12,11 @@ app.use(express.json())
 
 app.get("/", (req, res) => {
   const html = dartCalculator.render();
+  res.send(html);
+});
+
+app.get("/mock", (req, res) => {
+  const html = dartCalculator.render([mockDarts]);
   res.send(html);
 });
 
